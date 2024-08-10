@@ -3,12 +3,16 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>HydroQuest Submarine | Team Hope</title>
+    <title>Team Hope | HydroQuest</title>
     <meta name="description" content="" />
+
     <!-- Link Custom CSS file -->
     <link rel="stylesheet" href="./Styles/style.css" />
+
+    <!-- Favicon Link -->
+    <link rel="shortcut icon" href="" type="image/x-icon" />
   </head>
-  <body>
+  <body class="dark-mode">
     <!-- Header Section -->
     <header>
       <div class="logo">
@@ -28,7 +32,80 @@
     <!-- Main Content Section -->
     <main>
       <!-- Home Section -->
-      <section class="home" id="home"></section>
+      <section class="home" id="home">
+        <div class="slide-list">
+          <div class="slide-item active-slide">
+            <img src="./images/slider-1.jpg" alt="Underwater Exploration" />
+            <div class="slide-content">
+              <h3><span>Hydro Quest</span></h3>
+              <h1>Autonomous Underwater Submarine</h1>
+              <p>
+                Discover the depths of the ocean with Hydro Quest, an innovative
+                autonomous submarine by Team Hope, designed for exploration and
+                environmental preservation.
+              </p>
+              <a href="#features" class="btn">Learn More</a>
+            </div>
+          </div>
+
+          <div class="slide-item">
+            <img src="./images/slider-2.jpg" alt="Advanced Technology" />
+            <div class="slide-content">
+              <h3><span>Innovative Design</span></h3>
+              <h1>Cutting-Edge Submarine Technology</h1>
+              <p>
+                Hydro Quest combines state-of-the-art technology with a
+                commitment to sustainability, offering unparalleled exploration
+                capabilities.
+              </p>
+              <a href="#features" class="btn">Learn More</a>
+            </div>
+          </div>
+
+          <div class="slide-item">
+            <img src="./images/slider-3.jpg" alt="Mission-Ready" />
+            <div class="slide-content">
+              <h3><span>Explore the Deep</span></h3>
+              <h1>Mission-Ready for Ocean Discovery</h1>
+              <p>
+                Engineered to withstand the challenges of the deep sea, Hydro
+                Quest is your partner in scientific and environmental research.
+              </p>
+              <a href="#features" class="btn">Learn More</a>
+            </div>
+          </div>
+
+          <div class="slide-item">
+            <img src="images/slider-4.jpeg" alt="Sustainable Exploration" />
+            <div class="slide-content">
+              <h3><span>Team Hope</span></h3>
+              <h1>Pioneers in Sustainable Exploration</h1>
+              <p>
+                Join Team Hope in pioneering sustainable ocean exploration with
+                Hydro Quest, a testament to innovation and environmental
+                stewardship.
+              </p>
+              <a href="#features" class="btn">Learn More</a>
+            </div>
+          </div>
+        </div>
+
+        <button
+          class="slider-btn prev"
+          onclick="prevSlide();"
+          aria-label="Previous Slide"
+        >
+          <ion-icon name="chevron-back-outline"></ion-icon>
+        </button>
+
+        <button
+          class="slider-btn next"
+          onclick="nextSlide();"
+          aria-label="Next Slide"
+        >
+          <ion-icon name="chevron-forward-outline"></ion-icon>
+        </button>
+      </section>
     </main>
 
     <!-- Footer Section -->
@@ -36,5 +113,15 @@
 
     <!-- Link Custom JS File -->
     <script src="./JS/main.js"></script>
+
+    <!-- Icons Library -->
+    <script
+      type="module"
+      src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.esm.js"
+    ></script>
+    <script
+      nomodule
+      src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.js"
+    ></script>
   </body>
 </html>
