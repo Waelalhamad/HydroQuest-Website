@@ -1,6 +1,6 @@
 /*******************************************************************************************************
  *                                                                                                      *
- *                                           Slider                                                     *
+ *TODO                                           Slider                                                     *
  *                                                                                                      *
  *******************************************************************************************************/
 
@@ -49,3 +49,5 @@ function showSLider() {
   sliderItems[slideActive].querySelector("img").offsetHeight;
   sliderItems[slideActive].querySelector("img").style.animation = "";
 }
+
+

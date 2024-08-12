@@ -16,7 +16,7 @@
 :root {
   /* Colors Light Mode */
   --primary-100: #0077c2;
-  --primary-200: #59a5f5;
+  --primary-200: #6aa4e2;
   --primary-300: #c8ffff;
   --accent-100: #00bfff;
   --accent-200: #00619a;
@@ -200,11 +200,13 @@ img {
   letter-spacing: 2px;
   font-size: var(--h2-size);
   margin-bottom: 20px;
+  color: var(--primary-300) ;
 }
 
 .home .slide-content p {
   font-size: 18px;
   margin-bottom: 50px;
+  color: var(--primary-200);
 }
 
 .home .slide-content h3 {
