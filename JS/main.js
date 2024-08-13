@@ -17,11 +17,9 @@ function onScroll() {
 
   if (scrollTop > 0) {
     header.classList.add("with-bg");
-  } else {
-    if (scrollTop === 0) {
-      header.classList.remove("with-bg");
-    }
-  }
+} else {
+    header.classList.remove("with-bg");
+}
 
   // Update active nav link based on scroll position
   sections.forEach((section) => {
@@ -108,3 +106,6 @@ function showSLider() {
   sliderItems[slideActive].querySelector("img").offsetHeight;
   sliderItems[slideActive].querySelector("img").style.animation = "";
 }
+
+
+

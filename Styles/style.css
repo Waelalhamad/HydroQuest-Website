@@ -25,6 +25,7 @@
   --bg-100: #ffffff;
   --bg-200: #f5f5f5;
   --bg-300: #cccccc;
+  --Black : #0000;
 
   /* Fonts Size */
   --font-size: 16px;
@@ -69,6 +70,7 @@ body.dark-mode {
   --bg-100: #1e1e1e;
   --bg-200: #2d2d2d;
   --bg-300: #454545;
+  --Black : #0000
 }
 
 body.dark-mode {
@@ -103,7 +105,76 @@ img {
   letter-spacing: 3px;
 }
 
-.btn {
+/* I Switch the style of the btn and put another style to the min-Title and Learn More in the home section */
+.minTitle{
+  border: 2px solid ;
+  padding: 0.7rem 2.3rem;
+  text-decoration: none;
+  position: relative;
+  z-index: 1;
+  letter-spacing: 1px;
+  transition: var(--transition-3);
+}
+.minTitle::before{
+  content: '';
+  position: absolute;
+  width: 1rem;
+  height: 1rem;
+  border-radius: var(--radius-circle);
+  background-color: var(--primary-100);
+  left: -30px;
+  top: 50%;
+  transform: translateY(-50%);
+}
+.minTitle::after{
+  content: '';
+  position: absolute;
+  width: 1rem;
+  height: 1rem;
+  border-radius: var(--radius-circle);
+  background-color: var(--primary-100);
+  right: -30px;
+  top: 50%;
+  transform: translateY(-50%);
+}
+.minTitle:hover::before{
+  z-index: -1;
+  animation: left-move 0.5s linear forwards;
+}
+.minTitle:hover::after{
+  z-index: -1;
+  animation: right-move 0.5s linear forwards;
+}
+.minTitle:hover{
+  color : var(--bg-100);
+  border: 2px solid var(--bg-100);
+  transition-delay: 0.5s;
+}
+@keyframes left-move {
+  50%{
+    left : 0;
+    width: 1rem;
+    height: 1rem;
+  }100%{
+    left : 0;
+    border-radius: 0;
+    width: 50%;
+    height: 100%;
+  }
+}
+@keyframes right-move {
+  50%{
+    right : 0;
+    width: 1rem;
+    height: 1rem;
+  }100%{
+    right : 0;
+    border-radius: 0;
+    width: 50%;
+    height: 100%;
+  }
+}
+/* .btn {
   outline: none;
   padding: 10px 40px;
   border-radius: var(--radius-8);
@@ -118,7 +189,9 @@ img {
   overflow: hidden;
   max-width: max-content;
   transition: var(--transition-2);
-}
+} */
+
+
 
 .btn:hover,
 .item-action button:hover {
@@ -147,15 +220,15 @@ header {
   top: 0;
   left: 0;
   width: 100%;
-  padding: 1rem 8%;
+  padding: 0.5rem 8%;
   background-color: transparent;
-  height: 100px;
+
   z-index: 1000;
   transition: top 0.3s ease, background-color 0.3s ease;
 }
 
 header.with-bg {
-  background-color: var(--black);
+  background-color: black;
   top: 0;
 }
 
@@ -174,8 +247,8 @@ header .container {
 }
 
 .logo svg {
-  width: 120px;
-  height: 120px;
+  width: 85px;
+  height: 85px;
 }
 
 .logo h3 {
@@ -195,21 +268,16 @@ header .container {
   display: flex;
   justify-content: space-between;
   list-style: none;
-  padding: 0;
-  margin-right: 50px;
-}
-
-.nav-links li {
-  margin: 0 12px;
-}
+  gap: 30px;
+  margin-top: 10px;
+} 
 
 .nav-links li a {
-  color: var(--text-100-white);
+  color: var(--bg-100);
   font-size: var(--base-size);
   font-weight: var(--font-medium);
   text-decoration: none;
   position: relative;
-  padding-bottom: 5px;
   transition: color var(--transition-1);
 }
 
@@ -230,23 +298,32 @@ header .container {
 }
 
 .nav-links li a:hover,
-.nav-icons a:hover,
 .active-nav {
   color: var(--primary-100) !important;
 }
 
-.nav-icons {
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
+
+.button {
+  padding: 10px 15px;
+  font-size: var(--font-size);
+  border: none;
+  outline: none;
+  background-color:var(--primary-100);
+  color: #eee;
+  border-radius: 7px;
+  font-weight: 500;
+  cursor: pointer;
+  transition: all 0.25s ease-out;
 }
 
-.nav-icons a {
-  color: var(--text-100-white);
-  font-size: var(--h3-size);
-  margin-left: 10px;
-  transition: color var(--transition-1);
+.button:hover {
+  transform: translateY(-3px);
 }
+
+.button-span {
+  color: #aaa;
+}
+
 
 .nav-menu {
   display: none;
@@ -255,33 +332,12 @@ header .container {
   color: var(--text-100-white);
 }
 
-.nav-menu ion-icon,
-.nav-icons ion-icon {
-  font-size: xx-large;
-  vertical-align: middle;
-}
 
-.nav-icons .cart-icon,
 .nav-icons .profile-icon {
   width: 48px;
   position: relative;
   cursor: pointer;
 }
-
-.nav-icons .cart-count {
-  top: 0;
-  right: 4px;
-  text-align: center;
-  position: absolute;
-  background-color: var(--primary-100);
-  color: var(--text-100);
-  width: 20px;
-  height: 20px;
-  font-size: small;
-  border-radius: var(--radius-circle);
-  z-index: 10;
-}
-
 /*******************************************************************************************************
  *                                                                                                      *
  *TODO                                           Home Section                                                     *
@@ -396,6 +452,7 @@ header .container {
 
 .slide-list .active-slide a {
   animation-delay: 1.5s;
+  color: var(--primary-300);
 }
 
 .home .slider-btn {
@@ -428,3 +485,224 @@ header .container {
 .home .next {
   right: 30px;
 }
+
+
+/*******************************************************************************************************
+ *                                                                                                      *
+ *TODO                                            About Section                                                   *
+ *                                                                                                      *
+ *******************************************************************************************************/
+
+ .about{
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  gap: 5rem;
+ }
+ .about-top--title{
+  font-size: var(--h1-size);
+ }
+ .img-fluid{
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+ }
+/* From Uiverse.io by satyamchaudharydev */ 
+/* === removing default button style ===*/
+.mini-title {
+  margin: 0;
+  height: auto;
+  background: transparent;
+  padding: 0;
+  border: none;
+  cursor: pointer;
+}
+
+/* button styling */
+.mini-title {
+  --border-right: 2px;
+  --text-stroke-color: rgba(255, 255, 255, 0.6);
+  --animation-color: var(--primary-100);
+  --fs-size: 2em;
+  letter-spacing: 1px;
+  font-size: var(--fs-size);
+  position: relative;
+  color: black ;
+  -webkit-text-stroke: 1px var(--text-stroke-color);
+  display: inline-block; /* Ensures that the text behaves like a button */
+  overflow: hidden;
+}
+
+/* This is the text, when you hover on button */
+.hover-text {
+  position: absolute;
+  color: var(--animation-color);
+  width: 0;
+  inset: 0;
+  border-right: var(--border-right) solid var(--animation-color);
+  overflow: hidden;
+  transition: width 0.5s ease;
+  -webkit-text-stroke: 1px var(--animation-color);
+  white-space: nowrap; /* Prevents the text from wrapping */
+}
+
+.actual-text{
+  color: black;
+}
+
+/* Hover effect */
+.mini-title:hover .hover-text{
+  width: 100%;
+}
+
+.about-bottom--content p {
+  font-size: 15px;
+  color: var(--text-200);
+  line-height: 1.6;
+}
+
+/* Animated Btn */
+.animated-button {
+  position: relative;
+  display: flex;
+  align-items: center;
+  gap: 4px;
+  padding: 10px 30px;
+  border: 4px solid;
+  border-color: transparent;
+  font-size: 16px;
+  background-color: inherit;
+  border-radius: 100px;
+  font-weight: 600;
+  color: var(--primary-100);
+  box-shadow: 0 0 0 2px var(--primary-100);
+  cursor: pointer;
+  overflow: hidden;
+  transition: all 0.6s cubic-bezier(0.23, 1, 0.32, 1);
+}
+
+.animated-button svg {
+  position: absolute;
+  width: 24px;
+  fill: var(--primary-100);
+  z-index: 9;
+  transition: all 0.8s cubic-bezier(0.23, 1, 0.32, 1);
+}
+
+.animated-button .arr-1 {
+  right: 16px;
+}
+
+.animated-button .arr-2 {
+  left: -25%;
+}
+
+.animated-button .circle {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: 20px;
+  height: 20px;
+  background-color: var(--primary-100);
+  border-radius: 50%;
+  opacity: 0;
+  transition: all 0.8s cubic-bezier(0.23, 1, 0.32, 1);
+}
+
+.animated-button .text {
+  position: relative;
+  z-index: 1;
+  transform: translateX(-12px);
+  transition: all 0.8s cubic-bezier(0.23, 1, 0.32, 1);
+}
+
+.animated-button:hover {
+  box-shadow: 0 0 0 12px transparent;
+  color: #212121;
+  border-radius: 12px;
+}
+
+.animated-button:hover .arr-1 {
+  right: -25%;
+}
+
+.animated-button:hover .arr-2 {
+  left: 16px;
+}
+
+.animated-button:hover .text {
+  transform: translateX(12px);
+  color: white;
+}
+
+.animated-button:hover svg {
+  fill: #ffffff;
+}
+
+.animated-button:active {
+  scale: 0.95;
+  box-shadow: 0 0 0 4px var(--primary-100);
+}
+
+.animated-button:hover .circle {
+  width: 220px;
+  height: 220px;
+  opacity: 1;
+}
+
+
+
+/*******************************************************************************************************
+ *                                                                                                      *
+ *TODO                                           Gallery Section                                                 *
+ *                                                                                                      *
+ *******************************************************************************************************/
+
+ .gallery{
+  display: flex;
+  flex-direction: column;
+  gap: 3rem;
+  position: relative;
+ }
+
+ .gallery::before{
+  content : "";
+  position: absolute;
+  background-color: var(--primary-100);
+  z-index: -1;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 80%;
+ }
+ .gallery img{
+  min-height: 15rem;
+  object-fit: cover;
+  width: 100%;
+ }
+ .gallery-top{
+  text-align: center;
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+ }
+ .gallery-top p{
+  max-width: 40rem;
+  margin: 0 auto;
+  color: var(--text-100);
+ }
+ .gallery-top h1{
+  color: white;
+ }
+ .col-lg-4{
+  position: relative;
+ }
+
+
+ /*******************************************************************************************************
+ *                                                                                                      *
+ *TODO                                            Team Section                                                   *
+ *                                                                                                      *
+ *******************************************************************************************************/
