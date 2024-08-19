@@ -22,10 +22,11 @@
   --accent-200: #00619a;
   --text-100: #333333;
   --text-200: #5c5c5c;
+  --text-white: #fff;
   --bg-100: #ffffff;
   --bg-200: #f5f5f5;
   --bg-300: #cccccc;
-  --Black : #0000;
+  --Black: #0000;
 
   /* Fonts Size */
   --font-size: 16px;
@@ -70,12 +71,11 @@ body.dark-mode {
   --bg-100: #1e1e1e;
   --bg-200: #2d2d2d;
   --bg-300: #454545;
-  --Black : #0000
+  --Black: #0000;
 }
 
 body.dark-mode {
   background-color: var(--bg-100);
-  color: var(--text-100);
 }
 
 section {
@@ -100,87 +100,17 @@ img {
   font-size: var(--h1-size);
   font-weight: 700;
   text-align: center;
-  margin-top: 20px;
-  margin-bottom: 40px;
+  margin-top: 30px;
   letter-spacing: 3px;
 }
 
-/* I Switch the style of the btn and put another style to the min-Title and Learn More in the home section */
-.minTitle{
-  border: 2px solid ;
-  padding: 0.7rem 2.3rem;
-  text-decoration: none;
-  position: relative;
-  z-index: 1;
-  letter-spacing: 1px;
-  transition: var(--transition-3);
-}
-.minTitle::before{
-  content: '';
-  position: absolute;
-  width: 1rem;
-  height: 1rem;
-  border-radius: var(--radius-circle);
-  background-color: var(--primary-100);
-  left: -30px;
-  top: 50%;
-  transform: translateY(-50%);
-}
-.minTitle::after{
-  content: '';
-  position: absolute;
-  width: 1rem;
-  height: 1rem;
-  border-radius: var(--radius-circle);
-  background-color: var(--primary-100);
-  right: -30px;
-  top: 50%;
-  transform: translateY(-50%);
-}
-.minTitle:hover::before{
-  z-index: -1;
-  animation: left-move 0.5s linear forwards;
-}
-.minTitle:hover::after{
-  z-index: -1;
-  animation: right-move 0.5s linear forwards;
-}
-.minTitle:hover{
-  color : var(--bg-100);
-  border: 2px solid var(--bg-100);
-  transition-delay: 0.5s;
-}
-@keyframes left-move {
-  50%{
-    left : 0;
-    width: 1rem;
-    height: 1rem;
-  }100%{
-    left : 0;
-    border-radius: 0;
-    width: 50%;
-    height: 100%;
-  }
-}
-@keyframes right-move {
-  50%{
-    right : 0;
-    width: 1rem;
-    height: 1rem;
-  }100%{
-    right : 0;
-    border-radius: 0;
-    width: 50%;
-    height: 100%;
-  }
-}
-/* .btn {
+.btn-main {
   outline: none;
   padding: 10px 40px;
   border-radius: var(--radius-8);
   background: transparent;
   border: 2px solid var(--primary-100) !important;
-  color: var(--primary-100);
+  color: var(--primary-100) !important;
   font-size: 1.1rem;
   text-transform: uppercase;
   font-weight: var(--font-bold);
@@ -188,23 +118,22 @@ img {
   cursor: pointer;
   overflow: hidden;
   max-width: max-content;
+  text-decoration: none;
   transition: var(--transition-2);
-} */
+}
 
-
-
-.btn:hover,
+.btn-main:hover,
 .item-action button:hover {
   background-color: var(--primary-100);
-  color: var(--text-100);
+  color: var(--text-100) !important;
 }
 
 ::-webkit-scrollbar {
-  width: 6px;
+  width: 4px;
 }
 
 ::-webkit-scrollbar-track {
-  background-color: rgb(94, 94, 94);
+  background-color: rgb(124, 124, 124);
 }
 
 ::-webkit-scrollbar-thumb {
@@ -220,7 +149,7 @@ header {
   top: 0;
   left: 0;
   width: 100%;
-  padding: 0.5rem 8%;
+  padding: 0 8%;
   background-color: transparent;
 
   z-index: 1000;
@@ -228,8 +157,7 @@ header {
 }
 
 header.with-bg {
-  background-color: black;
-  top: 0;
+  background-color: var(--bg-100);
 }
 
 header .container {
@@ -247,8 +175,8 @@ header .container {
 }
 
 .logo svg {
-  width: 85px;
-  height: 85px;
+  width: 100px;
+  height: 100px;
 }
 
 .logo h3 {
@@ -270,10 +198,10 @@ header .container {
   list-style: none;
   gap: 30px;
   margin-top: 10px;
-} 
+}
 
 .nav-links li a {
-  color: var(--bg-100);
+  color: var(--text-100);
   font-size: var(--base-size);
   font-weight: var(--font-medium);
   text-decoration: none;
@@ -302,13 +230,12 @@ header .container {
   color: var(--primary-100) !important;
 }
 
-
 .button {
   padding: 10px 15px;
   font-size: var(--font-size);
   border: none;
   outline: none;
-  background-color:var(--primary-100);
+  background-color: var(--primary-100);
   color: #eee;
   border-radius: 7px;
   font-weight: 500;
@@ -324,25 +251,14 @@ header .container {
   color: #aaa;
 }
 
-
 .nav-menu {
   display: none;
   align-items: center;
   font-size: 1.6rem;
-  color: var(--text-100-white);
+  color: var(--text-100);
 }
 
-
-.nav-icons .profile-icon {
-  width: 48px;
-  position: relative;
-  cursor: pointer;
-}
-/*******************************************************************************************************
- *                                                                                                      *
- *TODO                                           Home Section                                                     *
- *                                                                                                      *
- *******************************************************************************************************/
+/* --------------  Home Section -------------- */
 .home {
   position: relative;
 }
@@ -404,13 +320,13 @@ header .container {
   letter-spacing: 2px;
   font-size: var(--h2-size);
   margin-bottom: 20px;
-  color: var(--primary-300) ;
+  color: var(--primary-300);
 }
 
 .home .slide-content p {
   font-size: 18px;
   margin-bottom: 50px;
-  color: var(--primary-200);
+  color: var(--text-white);
 }
 
 .home .slide-content h3 {
@@ -455,7 +371,7 @@ header .container {
   color: var(--primary-300);
 }
 
-.home .slider-btn {
+.home .slider-btn-main {
   display: flex;
   align-items: center;
   justify-content: center;
@@ -473,7 +389,7 @@ header .container {
   cursor: pointer;
 }
 
-.home .slider-btn:hover {
+.home .slider-btn-main:hover {
   background-color: var(--primary-100);
   color: var(--text-100);
 }
@@ -486,29 +402,22 @@ header .container {
   right: 30px;
 }
 
-
-/*******************************************************************************************************
- *                                                                                                      *
- *TODO                                            About Section                                                   *
- *                                                                                                      *
- *******************************************************************************************************/
-
- .about{
+/* --------------  About Section -------------- */
+.about {
   display: flex;
   flex-direction: column;
   justify-content: center;
   align-items: center;
   gap: 5rem;
- }
- .about-top--title{
-  font-size: var(--h1-size);
- }
- .img-fluid{
+}
+
+.img-fluid {
   width: 100%;
   height: 100%;
   object-fit: cover;
- }
-/* From Uiverse.io by satyamchaudharydev */ 
+}
+
+/* From Uiverse.io by satyamchaudharydev */
 /* === removing default button style ===*/
 .mini-title {
   margin: 0;
@@ -528,7 +437,7 @@ header .container {
   letter-spacing: 1px;
   font-size: var(--fs-size);
   position: relative;
-  color: black ;
+  color: black;
   -webkit-text-stroke: 1px var(--text-stroke-color);
   display: inline-block; /* Ensures that the text behaves like a button */
   overflow: hidden;
@@ -547,12 +456,12 @@ header .container {
   white-space: nowrap; /* Prevents the text from wrapping */
 }
 
-.actual-text{
+.actual-text {
   color: black;
 }
 
 /* Hover effect */
-.mini-title:hover .hover-text{
+.mini-title:hover .hover-text {
   width: 100%;
 }
 
@@ -562,7 +471,7 @@ header .container {
   line-height: 1.6;
 }
 
-/* Animated Btn */
+/* Animated btn-main */
 .animated-button {
   position: relative;
   display: flex;
@@ -652,23 +561,18 @@ header .container {
   opacity: 1;
 }
 
-
-
-/*******************************************************************************************************
- *                                                                                                      *
- *TODO                                           Gallery Section                                                 *
- *                                                                                                      *
- *******************************************************************************************************/
-
- .gallery{
+/* --------------  Gallery Section -------------- */
+.gallery {
+  background-color: var(--bg-300);
+  height: 100vh;
   display: flex;
   flex-direction: column;
   gap: 3rem;
   position: relative;
- }
+}
 
- .gallery::before{
-  content : "";
+/* .gallery::before {
+  content: "";
   position: absolute;
   background-color: var(--primary-100);
   z-index: -1;
@@ -676,33 +580,33 @@ header .container {
   left: 0;
   width: 100%;
   height: 80%;
- }
- .gallery img{
+} */
+
+.gallery img {
   min-height: 15rem;
   object-fit: cover;
   width: 100%;
- }
- .gallery-top{
+}
+
+.gallery-top {
   text-align: center;
   display: flex;
   flex-direction: column;
   gap: 1rem;
- }
- .gallery-top p{
+}
+
+.gallery-top p {
   max-width: 40rem;
   margin: 0 auto;
   color: var(--text-100);
- }
- .gallery-top h1{
-  color: white;
- }
- .col-lg-4{
+}
+
+.gallery-top h1 {
+  color: var(--text-100);
+}
+
+.col-lg-4 {
   position: relative;
- }
+}
 
-
- /*******************************************************************************************************
- *                                                                                                      *
- *TODO                                            Team Section                                                   *
- *                                                                                                      *
- *******************************************************************************************************/
+/* --------------  Team Section -------------- */

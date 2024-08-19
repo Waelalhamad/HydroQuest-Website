@@ -3,11 +3,6 @@
  *                                           Navbar                                                     *
  *                                                                                                      *
  *******************************************************************************************************/
-/*******************************************************************************************************
- *                                                                                                      *
- *                                           Navbar                                                     *
- *                                                                                                      *
- *******************************************************************************************************/
 const header = document.querySelector("header");
 const navLinks = document.querySelectorAll(".nav-links li a");
 const sections = document.querySelectorAll("section");
@@ -17,9 +12,9 @@ function onScroll() {
 
   if (scrollTop > 0) {
     header.classList.add("with-bg");
-} else {
+  } else {
     header.classList.remove("with-bg");
-}
+  }
 
   // Update active nav link based on scroll position
   sections.forEach((section) => {
@@ -106,6 +101,3 @@ function showSLider() {
   sliderItems[slideActive].querySelector("img").offsetHeight;
   sliderItems[slideActive].querySelector("img").style.animation = "";
 }
-
-
-
