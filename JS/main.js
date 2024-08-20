@@ -12,8 +12,10 @@ function onScroll() {
 
   if (scrollTop > 0) {
     header.classList.add("with-bg");
+    navLinks.forEach(link => link.classList.add("topLink"))
   } else {
     header.classList.remove("with-bg");
+    navLinks.forEach(link => link.classList.remove("topLink"))
   }
 
   // Update active nav link based on scroll position
@@ -101,3 +103,25 @@ function showSLider() {
   sliderItems[slideActive].querySelector("img").offsetHeight;
   sliderItems[slideActive].querySelector("img").style.animation = "";
 }
+
+
+
+
+/*******************************************************************************************************
+ *                                                                                                      *
+ *                                           Team Section                                                     *
+ *                                                                                                      *
+ *******************************************************************************************************/
+
+document.addEventListener('DOMContentLoaded', function () {
+  const swiper = new Swiper('.js-testimonials-slider', {
+    grabCursor: true,
+    spaceBetween: 50,
+    breakpoints: {
+      767: {
+        slidesPerView: 2,
+      },
+    },
+  });
+});
+
