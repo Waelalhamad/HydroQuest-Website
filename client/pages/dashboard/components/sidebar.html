@@ -1,4 +1,6 @@
 <aside>
+
+  <div class="container">
   <div class="logo">
     <svg
       xmlns="http://www.w3.org/2000/svg"
@@ -33,30 +35,50 @@
         />
       </g>
     </svg>
+
   </div>
   <div class="nav">
     <nav>
       <ul>
         <li class="nav-link" onclick="loadComponent('dashboard.html')">
-          <a href="#"
-            ><ion-icon name="speedometer-outline"></ion-icon> Dashboard</a
-          >
+          <a href="#" class="nav-link__content">
+            <i class="fa-solid fa-house"></i>
+            <p class="hidden">Home</p>
+          </a>
         </li>
         <li class="nav-link active-nav" onclick="loadComponent('camera.html')">
-          <a href="#"><ion-icon name="camera-outline"></ion-icon> Camera</a>
-        </li>
-        <li class="nav-link" onclick="loadComponent('sensors.html')">
-          <a href="#"><ion-icon name="podium-outline"></ion-icon> Sensors</a>
+          <a href="#" class="nav-link__content">
+            <i class="fa-solid fa-video"></i>
+            <p class="hidden">Camera</p>
+          </a>
         </li>
         <li class="nav-link" onclick="loadComponent('location.html')">
-          <a href="#"><ion-icon name="location-outline"></ion-icon> Location</a>
+          <a href="#" class="nav-link__content">
+            <i class="fa-solid fa-location-dot"></i>
+            <p class="hidden">Location</p>
+          </a>
         </li>
+        <ol class="nav-link" onclick="loadComponent('sensors.html')">
+          <a href="#" class="nav-link__content">
+            <i class="fa-brands fa-slack"></i>
+            <p class="hidden">Sensors</p>
+          </a>
+        </ol>
       </ul>
     </nav>
   </div>
-  <div class="logout">
-    <a href="../../../index.html" onclick="logout()"
-      ><ion-icon name="log-out-outline"></ion-icon> Logout</a
-    >
+
+</div>
+
+  
+  <!-- <div class="logout">
+    <a href="../../../index.html" onclick="logout()">
+      <ion-icon name="log-out-outline"></ion-icon> 
+    </a>
+  </div> -->
+
+  <div class="user">
+    <i class="fa-solid fa-circle-user"></i>
+    <p class="hidden">User</p>
   </div>
 </aside>
