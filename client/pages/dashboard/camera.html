@@ -108,6 +108,66 @@
     </div>
 
     <!-- Main Content -->
-    <div id="main-content"></div>
+    <div id="main-content">
+      <div class="cam">
+        <h2>Live Camera Stream</h2>
+        <div id="live-stream">
+          <img id="videoFrame" alt="Live Camera Feed" />
+        </div>
+      </div>
+    </div>
+
+    <!-- Camera Script -->
+    <script>
+      // Function to check if the element is available and update the src
+      function setupWebSocket() {
+        const videoFrame = document.getElementById("videoFrame");
+
+        if (videoFrame) {
+          // Create a WebSocket connection
+          const ws = new WebSocket("ws://localhost:3000");
+
+          ws.onmessage = async function (event) {
+            try {
+              let data;
+              if (event.data instanceof Blob) {
+                // If it's a Blob, read it as text
+                data = await event.data.text();
+              } else {
+                // If it's already text, use it directly
+                data = event.data;
+              }
+
+              // Parse the JSON data
+              const jsonData = JSON.parse(data);
+
+              // Check if the JSON data contains an image
+              if (jsonData.image) {
+                // Set the image src to display the live feed
+                videoFrame.src = "data:image/jpeg;base64," + jsonData.image;
+              } else {
+                console.warn("No image data found in WebSocket message");
+              }
+            } catch (error) {
+              console.error("Error processing WebSocket message:", error);
+            }
+          };
+
+          ws.onerror = function (error) {
+            console.error("WebSocket Error:", error);
+          };
+
+          ws.onclose = function () {
+            console.log("WebSocket connection closed");
+          };
+        } else {
+          // If videoFrame is not found, retry after a short delay
+          setTimeout(setupWebSocket, 100); // Retry every 100ms
+        }
+      }
+
+      // Call setupWebSocket function after DOM content is fully loaded
+      document.addEventListener("DOMContentLoaded", setupWebSocket);
+    </script>
   </body>
 </html>

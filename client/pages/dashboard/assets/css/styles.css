@@ -204,8 +204,8 @@ aside .container{
   height: 100%;
 }
 #sidebar-container .logo svg {
-  width: 80px;
-  height: 80px;
+  width: 90px;
+  height: 90px;
 }
 
 
@@ -213,17 +213,19 @@ aside:hover{
  animation: resize 20s forwards;
 
 }
-aside:hover .hidden{
+
+aside:hover .hidden {
   display: block;
   animation: fadeIn 2s forwards;
 }
 
-.logo{
+.logo {
   display: flex;
   gap: 0.5rem;
   align-items: center;
 }
-.user{
+
+.user {
   display: flex;
   gap: 0.9rem;
   align-items: center;
@@ -233,12 +235,13 @@ aside:hover .hidden{
   color: white;
   font-size: 1.1rem;
 }
+
 .nav-link__content{
   display: flex;
   gap: 0.9rem;
-
   align-items: center;
 }
+
 .nav-link__content p{
   font-size: 1.1rem ;
   color: white;
