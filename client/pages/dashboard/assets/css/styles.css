@@ -82,9 +82,9 @@ body.dark-mode {
   color: var(--text-100);
 }
 
-/*------------- Sidebar -----------
+/*------------- Sidebar -----------*/
 #sidebar-container {
-  width: auto;
+  width: 30%;
   background-color: #333;
   color: white;
   position: fixed;
@@ -97,8 +97,6 @@ body.dark-mode {
   align-items: center;
   justify-content: center;
 }
-
-
 
 #sidebar-container ul {
   list-style: none;
@@ -160,10 +158,10 @@ nav .nav-link.active-nav , .nav-link:hover {
   display: flex;
   align-items: center;
 }
-*/
 
 
 
+/* 
 aside{
   height: 100%;
   flex-basis: 5%;
@@ -265,4 +263,4 @@ aside:hover .hidden {
     flex-basis: 30%;
     opacity: 1;
   }
-}
+} */
