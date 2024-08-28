@@ -1,2 +1,4 @@
 server/node_modules
 client/pages/charts
+Arduino/GPS/vsCode/node_modules
+Arduino/TemperatureSensor/Server/node_modules
