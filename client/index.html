@@ -91,7 +91,9 @@
           </ul>
         </nav>
         <div class="sign-up">
-          <a href="http://localhost:3000/dashboard" class="button">Get started</a>
+          <a href="http://localhost:3000/dashboard" class="button"
+            >Get started</a
+          >
         </div>
       </div>
     </header>
@@ -558,15 +560,11 @@
             <div class="rightSide--box"></div>
           </div>
 
-          <form class="leftSide" data-aos="fade-left">
-            <input type="text" placeholder="Name" />
-            <input type="email" placeholder="Email" />
-            <textarea
-              name="message"
-              id="message"
-              placeholder="Message"
-            ></textarea>
-            <button type="submit">Submit</button>
+          <form class="leftSide" id="contact-form" data-aos="fade-left">
+            <input type="text" id="form-name" placeholder="Name" />
+            <input type="email" id="form-email" placeholder="Email" />
+            <textarea id="form-message" placeholder="Message"></textarea>
+            <button type="submit" id="submit">Submit</button>
           </form>
         </div>
       </section>
@@ -626,12 +624,8 @@
         <div class="footer-col">
           <h2>Follow <span>Us</span></h2>
           <ul>
-            <li>
-
-            </li>
-            <li>
-
-            </li>
+            <li></li>
+            <li></li>
           </ul>
         </div>
         <div class="footer-col">
@@ -656,6 +650,9 @@
     <div id="scrollUp" class="scroll-up">
       <ion-icon name="chevron-up-outline"></ion-icon>
     </div>
+
+    <!-- Email Submit API -->
+    <script src="https://smtpjs.com/v3/smtp.js"></script>
 
     <!-- Link Custom JS File -->
     <script src="./js/main.js"></script>
