@@ -1,9 +1,17 @@
 const path = require("path");
 
-exports.getHomePage = (req, res) => {
-  res.sendFile(path.join(__dirname, "../client/index.html"));
+// Utility function to resolve paths
+const resolveFilePath = (relativePath) => path.resolve(relativePath);
+
+const getHomePage = (req, res) => {
+  res.sendFile(resolveFilePath("client/index.html"));
 };
 
-exports.getDashboardPage = (req, res) => {
-  res.sendFile(path.join(__dirname, "../../client/pages/dashboard/dashboard.html"));
+const getDashboardPage = (req, res) => {
+  res.sendFile(resolveFilePath("../client/pages/dashboard/dashboard.html"));
+};
+
+module.exports = {
+  getHomePage,
+  getDashboardPage,
 };

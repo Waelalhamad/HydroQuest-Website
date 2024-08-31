@@ -12,10 +12,10 @@ function onScroll() {
 
   if (scrollTop > 0) {
     header.classList.add("with-bg");
-    navLinks.forEach(link => link.classList.add("topLink"))
+    navLinks.forEach((link) => link.classList.add("topLink"));
   } else {
     header.classList.remove("with-bg");
-    navLinks.forEach(link => link.classList.remove("topLink"))
+    navLinks.forEach((link) => link.classList.remove("topLink"));
   }
 
   // Update active nav link based on scroll position
@@ -65,7 +65,7 @@ const sliderNext = document.querySelector(".slider-btn.next");
 let sliderCount = sliderItems.length;
 let slideActive = 0;
 
-let refreshIntervel = setInterval(function () {
+let refreshInterval = setInterval(function () {
   nextSlide();
 }, 6000);
 
@@ -104,17 +104,14 @@ function showSLider() {
   sliderItems[slideActive].querySelector("img").style.animation = "";
 }
 
-
-
-
 /*******************************************************************************************************
  *                                                                                                      *
  *                                           Team Section                                               *
  *                                                                                                      *
  *******************************************************************************************************/
 
-document.addEventListener('DOMContentLoaded', function () {
-  const swiper = new Swiper('.js-testimonials-slider', {
+document.addEventListener("DOMContentLoaded", function () {
+  const swiper = new Swiper(".js-testimonials-slider", {
     grabCursor: true,
     spaceBetween: 50,
     breakpoints: {
@@ -125,19 +122,81 @@ document.addEventListener('DOMContentLoaded', function () {
   });
 });
 
-
-
 // scroll up button
-const scrollUpButton = document.getElementById('scrollUp');
+const scrollUpButton = document.getElementById("scrollUp");
 
-window.addEventListener('scroll', () => {
-    if (window.scrollY > window.innerHeight) {
-        scrollUpButton.classList.add('visible');
+window.addEventListener("scroll", () => {
+  if (window.scrollY > window.innerHeight) {
+    scrollUpButton.classList.add("visible");
+  } else {
+    scrollUpButton.classList.remove("visible");
+  }
+});
+
+scrollUpButton.addEventListener("click", () => {
+  window.scrollTo({ top: 0, behavior: "smooth" });
+});
+
+/*******************************************************************************************************
+ *                                                                                                      *
+ *                                         Contact Email Send                                           *
+ *                                                                                                      *
+ *******************************************************************************************************/
+const contactForm = document.getElementById("contact-form");
+const contactName = document.getElementById("form-name");
+const contactEmail = document.getElementById("form-email");
+const contactMessage = document.getElementById("form-message");
+
+function sendEmail() {
+  const bodyMessage = `Full Name: ${contactName.value}<br>Email: ${contactEmail.value}<br> Message: ${contactMessage.value}`;
+
+  Email.send({
+    SecureToken: "e0d5ad9f-92f9-42f3-94c7-b2e7b982c8fe",
+    To: "team.hope.hydroquest@gmail.com",
+    From: "team.hope.hydroquest@gmail.com",
+    Subject: "New Form Message",
+    Body: bodyMessage,
+  }).then((message) => {
+    if (message === "OK") {
+      console.log("Your Message Sent Successfully");
+      alert("Your Message Sent Successfully");
     } else {
-        scrollUpButton.classList.remove('visible');
+      console.log("Error");
     }
+  });
+}
+
+document.getElementById("submit").addEventListener("click", (event) => {
+  event.preventDefault();
+  sendEmail();
 });
 
-scrollUpButton.addEventListener('click', () => {
-    window.scrollTo({ top: 0, behavior: 'smooth' });
-});
+/*******************************************************************************************************
+ *                                                                                                      *
+ *                                         NewsLetter Email Send                                        *
+ *                                                                                                      *
+ *******************************************************************************************************/
+// const newsLetterForm = document.querySelector("footer form");
+// const newsLetterEmail = document.getElementById("news");
+
+// function sendNews() {
+//   const bodyMessage = `Email: ${newsLetterEmail.value}`;
+
+//   Email.send({
+//     SecureToken: "c187706a-bf7f-4930-95f4-adf48f2ec711",
+//     To: "restaurantgadel@gmail.com",
+//     From: "restaurantgadel@gmail.com",
+//     Subject: "New News Email",
+//     Body: bodyMessage,
+//   }).then((message) => {
+//     if (message == "OK") {
+//       alert("Your Email Send Successfully");
+//     }
+//   });
+// }
+
+// newsLetterForm.addEventListener("submit", (event) => {
+//   event.preventDefault();
+
+//   sendNews();
+// });

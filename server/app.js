@@ -1,39 +1,35 @@
+require("dotenv").config();
 const express = require("express");
+const mongoose = require("mongoose");
 const path = require("path");
-const WebSocket = require("ws");
+const mainRoutes = require("./routes/mainRoutes.js");
+const userRoutes = require("./routes/userRoutes.js");
+
 const app = express();
 const port = 3000;
 
-// Serve static files from the 'client' directory
-app.use(express.static(path.join(__dirname, "../client")));
+// Middlewares
+app.use(express.json());
 
-// Define routes
-const mainRoutes = require("./routes/mainRoutes");
+// MongoDB
+async function connectDb() {
+  try {
+    await mongoose.connect(process.env.CONNECTION_STRING);
+    console.log("Connection established successfully");
+  } catch (error) {
+    console.log("Error connecting to MongoDB:", error.message);
+  }
+}
+
+connectDb();
+
+app.use(express.static(path.join(path.resolve(), "../client")));
+
+// routes
 app.use("/", mainRoutes);
+app.use("/api/v1/user", userRoutes)
 
-// Create an HTTP server
-const server = app.listen(port, () => {
+// server
+app.listen(port, () => {
   console.log(`Server listening on http://localhost:${port}`);
 });
-
-// Create a WebSocket server
-const wss = new WebSocket.Server({ server });
-
-// Handle WebSocket connections
-wss.on("connection", (ws) => {
-  console.log("Client connected");
-
-  ws.on("message", (message) => {
-    wss.clients.forEach((client) => {
-      if (client !== ws && client.readyState === WebSocket.OPEN) {
-        // Forward the message as a string
-        client.send(message.toString());
-      }
-    });
-  });
-
-  ws.on("close", () => {
-    console.log("Client disconnected");
-  });
-});
-
