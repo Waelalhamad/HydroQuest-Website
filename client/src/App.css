@@ -53,14 +53,14 @@
   --transition-3: 1s ease;
 }
 
-body {
+.body {
   height: 100vh;
   background-color: var(--bg-100);
   color: var(--text-100);
 }
 
 /* Dark Mode Variables */
-body.dark-mode {
+.body.dark-mode {
   --primary-100: #0085ff;
   --primary-200: #69b4ff;
   --primary-300: #e0ffff;
@@ -74,7 +74,7 @@ body.dark-mode {
   --Black: #0000;
 }
 
-body.dark-mode {
+.body.dark-mode {
   background-color: var(--bg-100);
   color: var(--text-100);
 }
@@ -174,7 +174,7 @@ header .container {
   justify-content: center;
 }
 
-.logo svg {
+.logo img {
   width: 100px;
   height: 100px;
 }
@@ -831,7 +831,7 @@ header .container {
 .contact::after {
   content: "";
   position: absolute;
-  background-image: url("../assets/img-submarine.jpg");
+  background-color: red;
   width: 100%;
   height: 100%;
   top: 0;
