@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>GPS Data</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            text-align: center;
+            margin-top: 50px;
+        }
+        #gps-data {
+            font-size: 24px;
+            margin-top: 20px;
+        }
+    </style>
+</head>
+<body>
+    <h1>GPS Data from ESP8266</h1>
+    <div id="gps-data">Waiting for GPS data...</div>
+
+    <script>
+        const gpsDataElement = document.getElementById('gps-data');
+        const ws = new WebSocket('ws://' + window.location.host);
+
+        ws.onmessage = (event) => {
+            // Check if the received data is a Blob
+            if (event.data instanceof Blob) {
+                // Convert the Blob to a string
+                const reader = new FileReader();
+                reader.onload = function() {
+                    try {
+                        const gpsData = JSON.parse(reader.result);
+                        gpsDataElement.innerHTML = `Latitude: ${gpsData.latitude}<br>Longitude: ${gpsData.longitude}`;
+                    } catch (error) {
+                        console.error("Error parsing JSON:", error);
+                    }
+                };
+                reader.readAsText(event.data);
+            } else {
+                // If it's not a Blob, parse the message directly
+                try {
+                    const gpsData = JSON.parse(event.data);
+                    gpsDataElement.innerHTML = `Latitude: ${gpsData.latitude}<br>Longitude: ${gpsData.longitude}`;
+                } catch (error) {
+                    console.error("Error parsing JSON:", error);
+                }
+            }
+        };
+    </script>
+</body>
+</html>
