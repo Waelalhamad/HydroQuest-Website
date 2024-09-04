@@ -1,11 +1,156 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Submarine Dashboard</title>
+  <link rel="stylesheet" href="/css/dashboardStyle.css">
 </head>
 <body>
-    <h1>Hello World</h1>
+
+
+  <div class="sidebar">
+    <div class="menuToggle"></div>
+    <ul>
+      <li class="logo" style="--bg: #333">
+        <a href="#">
+          <div class="icon">
+            <div class="fot">
+                 <img src="/assets/logo.svg" alt="Logo">
+            </div>
+          </div>
+          <div class="text">
+            <div class="tem">Hope</div>
+          </div>
+        </a>
+      </li>
+      <div class="Menulist">
+        <li style="--bg: #f44336" class="active">
+          <a href="#">
+            <div class="icon"><ion-icon name="home-outline"></ion-icon></div>
+            <div class="text">Home</div>
+          </a>
+        </li>
+        <li style="--bg: #ffa117">
+          <a href="#">
+            <div class="icon">
+              <ion-icon name="person-outline"></ion-icon>
+            </div>
+            <div class="text">Users</div>
+          </a>
+        </li>
+        <li style="--bg: #0fc70f">
+          <a href="#">
+            <div class="icon">
+              <ion-icon name="chatbubble-outline"></ion-icon>
+            </div>
+            <div class="text">Inbox</div>
+          </a>
+        </li>
+        <li style="--bg: #2196f3">
+          <a href="#">
+            <div class="icon">
+              <ion-icon name="bar-chart-outline"></ion-icon>
+            </div>
+            <div class="text">Sensors</div>
+          </a>
+        </li>
+        <li style="--bg: #e91e63">
+          <a href="#">
+            <div class="icon">
+              <ion-icon name="settings-outline"></ion-icon>
+            </div>
+            <div class="text">Settings</div>
+          </a>
+        </li>
+      </div>
+      <div class="bottom">
+        <li style="--bg: #333">
+          <a href="#">
+            <div class="icon">
+              <ion-icon name="log-out-outline"></ion-icon>
+            </div>
+            <div class="text">Logout</div>
+          </a>
+        </li>
+      </div>
+    </ul>
+  </div>
+
+
+
+ <!-- Main Content -->
+  <div id="main-content">
+    <h1>Submarine Sensor Data</h1>
+    <div id="sensor-data">
+      <div class="data-item">Temperature (Celsius): <span id="temperature-c"></span></div>
+      <div class="data-item">Temperature (Kelvin): <span id="temperature-k"></span></div>
+      <div class="data-item">TDS Value: <span id="tds"></span></div>
+      <div class="data-item">Latitude: <span id="latitude"></span></div>
+      <div class="data-item">Longitude: <span id="longitude"></span></div>
+      <div class="data-item">Speed (km/h): <span id="speed"></span></div>
+    </div>
+  </div>
+
+
+
+
+
+
+
+
+
+
+
+
+  <script
+  type="module"
+  src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.esm.js"
+></script>
+<script
+  nomodule
+  src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.js"
+></script>
+
+
+
+
+
+
+  <script>
+    const ws = new WebSocket('ws://localhost:3000');
+
+    ws.onmessage = function (event) {
+      const data = JSON.parse(event.data);
+
+      document.getElementById('temperature-c').textContent = data.temperature_celsius;
+      document.getElementById('temperature-k').textContent = data.temperature_kelvin;
+      document.getElementById('tds').textContent = data.tds_value;
+      document.getElementById('latitude').textContent = data.latitude;
+      document.getElementById('longitude').textContent = data.longitude;
+      document.getElementById('speed').textContent = data.speed;
+    };
+
+    ws.onerror = function (error) {
+      console.error('WebSocket Error:', error);
+    };
+
+
+
+// Styling Using Node Js
+    let menuToggle = document.querySelector(".menuToggle");
+      let sidebar = document.querySelector(".sidebar");
+      menuToggle.onclick = function () {
+        menuToggle.classList.toggle("active");
+        sidebar.classList.toggle("active");
+      };
+
+      let Menulist = document.querySelectorAll(".Menulist li");
+      function activeLink() {
+        Menulist.forEach((item) => item.classList.remove("active"));
+        this.classList.add("active");
+      }
+      Menulist.forEach((item) => item.addEventListener("click", activeLink));
+  </script>
 </body>
 </html>
