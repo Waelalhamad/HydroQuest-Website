@@ -23,6 +23,7 @@
 body {
   min-height: 100vh;
 background-color: var(--bg-100);
+overflow: hidden;
 
 }
 
@@ -239,10 +240,94 @@ background-color: var(--bg-100);
 }
 
 
-
-
-
-
 .container{
   color: white;
+  display: flex;
+  flex-direction: column;
+  gap: 2rem;
+  padding-block: 2rem;
 }
+
+
+.sensor-data__gages{
+  display: flex;
+  gap: 2rem;
+
+  
+}
+.slider-container{
+  display: flex;
+  gap: 1.5rem;
+  padding: 1.3rem;
+  box-shadow: 5px 5px 8px rgba(0, 0, 0, 0.562) , -5px -5px 8px rgba(0, 0, 0, 0.562);
+  border-radius: 1rem;
+
+}
+
+.sensor-data{
+  display: flex;
+  flex-direction: column;
+  gap: 2rem;
+}
+
+.nonGagesData{
+  display: flex;
+  gap: 2rem;
+}
+
+.camera{
+  width: 60%;
+  height: 16rem;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  box-shadow: 5px 5px 8px rgba(0, 0, 0, 0.562) , -5px -5px 8px rgba(0, 0, 0, 0.562);
+  border-radius: 1rem;
+}
+
+.location{
+  width: 33%;
+  height: 16rem;
+  box-shadow: 5px 5px 8px rgba(0, 0, 0, 0.562) , -5px -5px 8px rgba(0, 0, 0, 0.562);
+  border-radius: 1rem;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+
+
+/* Dashboard Gages Design */
+.rs-bar{
+  z-index: 0 !important;
+}
+
+.rs-tooltip-text , .rs-tooltip{
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: 120px;
+  width: 120px;
+  border-radius: 50% !important;
+  font-size: 40px !important;
+  background-image: linear-gradient(135deg , #97e3fe , var(--accent-100));
+
+}
+
+.rs-handle{
+  background-color: var(--accent-100) !important;
+  border: 12px solid white;
+}
+
+
+.sl-1{
+  width: 35%;
+}
+.sl-2{
+  width: 25%;
+}
+.sl-3{
+  width: 30%;
+}
+
+
