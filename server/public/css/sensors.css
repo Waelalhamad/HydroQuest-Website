@@ -249,11 +249,10 @@ overflow: hidden;
 }
 
 
-.sensor-data__gages{
+.data{
   display: flex;
   gap: 2rem;
 
-  
 }
 .slider-container{
   display: flex;
@@ -262,38 +261,6 @@ overflow: hidden;
   box-shadow: 5px 5px 8px rgba(0, 0, 0, 0.562) , -5px -5px 8px rgba(0, 0, 0, 0.562);
   border-radius: 1rem;
 
-}
-
-.sensor-data{
-  display: flex;
-  flex-direction: column;
-  gap: 2rem;
-}
-
-.nonGagesData{
-  display: flex;
-  gap: 2rem;
-}
-
-.camera{
-  width: 60%;
-  height: 16rem;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  box-shadow: 5px 5px 8px rgba(0, 0, 0, 0.562) , -5px -5px 8px rgba(0, 0, 0, 0.562);
-  border-radius: 1rem;
-}
-
-.location{
-  width: 33%;
-  height: 16rem;
-  box-shadow: 5px 5px 8px rgba(0, 0, 0, 0.562) , -5px -5px 8px rgba(0, 0, 0, 0.562);
-  border-radius: 1rem;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  overflow: hidden;
 }
 
 
@@ -331,12 +298,4 @@ overflow: hidden;
   width: 30%;
 }
 
-#map {
-  height: 100%;
-  width: 100%;
-  position: relative;
-}
 
-.leaflet-control-zoom{
-  display: none !important;
-}

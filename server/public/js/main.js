@@ -169,34 +169,9 @@ function sendEmail() {
 document.getElementById("submit").addEventListener("click", (event) => {
   event.preventDefault();
   sendEmail();
+
+  contactEmail.value = ""
+  contactName.value = ""
+  contactMessage.value = ""
 });
 
-/*******************************************************************************************************
- *                                                                                                      *
- *                                         NewsLetter Email Send                                        *
- *                                                                                                      *
- *******************************************************************************************************/
-// const newsLetterForm = document.querySelector("footer form");
-// const newsLetterEmail = document.getElementById("news");
-
-// function sendNews() {
-//   const bodyMessage = `Email: ${newsLetterEmail.value}`;
-
-//   Email.send({
-//     SecureToken: "c187706a-bf7f-4930-95f4-adf48f2ec711",
-//     To: "restaurantgadel@gmail.com",
-//     From: "restaurantgadel@gmail.com",
-//     Subject: "New News Email",
-//     Body: bodyMessage,
-//   }).then((message) => {
-//     if (message == "OK") {
-//       alert("Your Email Send Successfully");
-//     }
-//   });
-// }
-
-// newsLetterForm.addEventListener("submit", (event) => {
-//   event.preventDefault();
-
-//   sendNews();
-// });

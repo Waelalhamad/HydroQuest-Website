@@ -43,6 +43,16 @@ app.get('/dashboard', (req, res) => {
 app.get('/', (req, res) => {
   res.render('index');
 });
+app.get("/dashboard/video", ( req , res) => {
+  res.render("./components/camera")
+})
+
+app.get("/dashboard/location" , (req , res) => {
+  res.render("./components/location")
+})
+app.get("/dashboard/sensors" , (req , res) => {
+  res.render("./components/sensors")
+})
 
 // WebSocket connection
 wss.on('connection', (ws) => {
