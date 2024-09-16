@@ -227,6 +227,34 @@
       this.classList.add("active");
     }
     Menulist.forEach((item) => item.addEventListener("click", activeLink));
+
+
+
+
+
+    function startCamera() {
+      const cameraDiv = document.getElementById('camera');
+
+      // Create a video element
+      const video = document.createElement('video');
+      video.setAttribute('autoplay', true);
+      video.setAttribute('playsinline', true); // for iOS devices
+      cameraDiv.appendChild(video);
+
+      // Get access to the camera
+      navigator.mediaDevices.getUserMedia({ video: true })
+        .then(stream => {
+          video.srcObject = stream;
+        })
+        .catch(err => {
+          console.error('Error accessing the camera:', err);
+          cameraDiv.innerHTML = "Unable to access the camera.";
+        });
+    }
+
+    // Call the function to start the camera
+    startCamera();
+
   </script>
 </body>
 </html>
